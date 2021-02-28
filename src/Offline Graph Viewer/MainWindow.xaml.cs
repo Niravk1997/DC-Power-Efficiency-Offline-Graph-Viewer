@@ -246,7 +246,7 @@ namespace Offline_Graph_Viewer
                 {
                     for (int i = 0; i < Source_Voltage.Count; i++)
                     {
-                        DataTable.addTest(testName, Source_Voltage[i], Source_Current[i], Sink_Voltage[i], Sink_Current[i], Input_Power[i], Output_Power[i], Test_Efficiency[i], Output_Power[i], SourceResistance[i], SinkResistance[i], CircuitResistance[i]);
+                        DataTable.addTest(testName, Source_Voltage[i], Source_Current[i], Sink_Voltage[i], Sink_Current[i], Input_Power[i], Output_Power[i], Test_Efficiency[i], Test_power_Loss[i], SourceResistance[i], SinkResistance[i], CircuitResistance[i]);
                     }
                 }));
             }
@@ -528,8 +528,8 @@ namespace Offline_Graph_Viewer
 
         private void Output_Collected_Data()
         {
-            string averageSinkVolt = Sink_Voltage.Average().ToString();
-                string averageSourceVolt = Source_Voltage.Average().ToString();
+            string averageSinkVolt = Math.Round(Sink_Voltage.Average(), 3).ToString();
+                string averageSourceVolt = Math.Round(Source_Voltage.Average(), 3).ToString();
                 try
                 {
                     if (PowerEfficiency_OutputCurrent != null)
