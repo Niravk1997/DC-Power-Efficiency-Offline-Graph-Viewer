@@ -1,6 +1,7 @@
 ﻿using Microsoft.Win32;
 using System;
 using System.Collections.Generic;
+using System.Globalization;
 using System.IO;
 using System.Linq;
 using System.Reflection;
@@ -79,6 +80,11 @@ namespace Offline_Graph_Viewer
         public MainWindow()
         {
             InitializeComponent();
+            if (Thread.CurrentThread.CurrentCulture.Name != "en-US")
+            {
+                Thread.CurrentThread.CurrentCulture = CultureInfo.CreateSpecificCulture("en-US");
+                Thread.CurrentThread.CurrentUICulture = CultureInfo.CreateSpecificCulture("en-US");
+            }
             Color_Palette();
             color_choose();
             insert_Log("Click on the Graphs menu and then show graph. Click on whichever graph(s) you like to see.", Message_Code);
